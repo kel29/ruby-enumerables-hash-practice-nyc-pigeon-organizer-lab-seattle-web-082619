@@ -4,9 +4,9 @@ def nyc_pigeon_organizer(data)
     specs.each do |quality, names|
       names.each do |name|
         if pigeons[name]
-          puts "#{name} is already in the hash"
+          pigeons[name][category] ? pigeons[name][category] << quality : pigeons[name][category] = [quality]
         else
-          pigeons[name] = {category => quality}
+          pigeons[name] = {category => [quality]}
         end
       end
     end
